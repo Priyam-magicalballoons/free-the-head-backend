@@ -36,19 +36,17 @@ export async function POST(req: NextRequest) {
 
   const token = jwt.sign({ id: user.id }, JWT_SECRET);
 
-  return NextResponse.json(
-    {
-      token,
-      message: "Login successful",
-      user: {
-        name: user.name,
-        gender: user.gender,
-        email: user.email,
-        createdAt: user.createdAt,
-        number: user.mobile,
-        doctor: user.doctor,
-      },
+  return NextResponse.json({
+    token,
+    message: "Login successful",
+    user: {
+      name: user.name,
+      gender: user.gender,
+      email: user.email,
+      createdAt: user.createdAt,
+      number: user.mobile,
+      doctor: user.doctor,
     },
-    { status: 200, headers }
-  );
+    status: 200,
+  });
 }

@@ -22,8 +22,6 @@ export async function POST(req: NextRequest) {
   if (verify instanceof NextResponse) return verify;
   const userId = verify.id;
 
-  console.log("now", userId);
-
   const create = await prisma.headacheEntry.create({
     data: {
       endTime,
